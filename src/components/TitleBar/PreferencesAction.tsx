@@ -16,6 +16,8 @@ const PageSizePreference = <Data extends DataType>({
     setPageSize
   } = tableInstance
   const { locale, text } = tableProps.localeOptions || {}
+  
+  const pageSizeOptions = [10, 20, 50, 75, 100, 150];
 
   return (
     <div>
@@ -25,7 +27,7 @@ const PageSizePreference = <Data extends DataType>({
         defaultValue={pageSize}
         onChange={(e) => setPageSize(parseInt(e.target.value, 10))}
       >
-        {[10, 20, 50, 75, 100, 150].map((size) => (
+        {pageSizeOptions.map((size) => (
           <option key={size} value={size}>
             {size.toLocaleString(locale)}
           </option>
